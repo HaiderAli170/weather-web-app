@@ -57,7 +57,7 @@ function WeatherDetail({ weather, setCountry }: any) {
       </div>
       <div
         id="detail"
-        className="w-[130%] flex flex-col  bg-cover bg-blend-soft-light h-[50%] backdrop-blur-sm border-0 font-poppins tracking-wider rounded-xl p-3 bg-white/10"
+        className="xl:w-[130%] flex flex-col bg-cover bg-blend-soft-light  backdrop-blur-sm border-0 font-poppins tracking-wider rounded-xl p-3 bg-white/10"
       >
         <div className="flex justify-center">
           <h1 className="bg-clip-text text-3xl text-transparent bg-gradient-to-r from-violet-900 to-x to-slate-900">
@@ -89,18 +89,18 @@ function WeatherDetail({ weather, setCountry }: any) {
           />
   
         <div className="flex flex-col ">
-          <div className=" flex absolute top-[60%] right-20 text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900 ">
+          <div className=" flex absolute top-[50%] right-20 text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900 ">
           <h1 >
             <span>Sun Set: </span>
             {sunsetTime}
           </h1>
-            {/* <img
+            <img
               src={sundown}
-              className=" absolute  rounded-full"
+              className=" absolute mt-8 rounded-full"
               alt="Clear Sun"
-            /> */}
+            />
           </div>
-          <h1 className="mt-[9%] text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
+          <h1 className="mt-[20%] text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
             <span>Sun Rises: </span>
             {sunriseTime}
           </h1>
