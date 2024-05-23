@@ -113,9 +113,7 @@ function WeatherDetail({ weather, setCountry }: any) {
         </div>
       </div>
       <div id="for extra wait"></div>
-      <div id="weather_day_way_day">
-        {/* <p>weather day by day</p> */}
-      </div>
+    
     </div>
   )
 }
