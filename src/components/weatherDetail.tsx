@@ -94,7 +94,6 @@ function WeatherDetail({ weather, setCountry }: any) {
             <span>Sun Set: </span>
             {sunsetTime}
           </h1>
-          <div></div>
             <img
               src={sundown}
               className=" absolute  rounded-full"
