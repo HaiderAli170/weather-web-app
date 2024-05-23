@@ -94,11 +94,11 @@ function WeatherDetail({ weather, setCountry }: any) {
             <span>Sun Set: </span>
             {sunsetTime}
           </h1>
-            <img
+            {/* <img
               src={sundown}
               className=" absolute  rounded-full"
               alt="Clear Sun"
-            />
+            /> */}
           </div>
           <h1 className="mt-[9%] text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
             <span>Sun Rises: </span>
