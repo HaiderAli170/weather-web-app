@@ -27,19 +27,21 @@ function WeatherDetail({ weather, setCountry }: any) {
   }
 
   const backgroundMain = () => {
-    const sky = weather?.weather?.map((item: any) => item.main);
+    const sky = weather?.weather?.map((item: any) => item.main)
     console.log(sky)
-    if (sky && sky[0] === 'Clouds') {  // Check if sky has data and the first item is 'Clear'
-      return cloud;
+    if (sky && sky[0] === 'Clouds') {
+      // Check if sky has data and the first item is 'Clear'
+      return cloud
     }
-    if (sky && sky[0] === 'Rain') {  // Check if sky has data and the first item is 'Clear'
-      return rain;
+    if (sky && sky[0] === 'Rain') {
+      // Check if sky has data and the first item is 'Clear'
+      return rain
     }
-    return clearsun;
-  };
+    return clearsun
+  }
   return (
     <div className="flex flex-col justify-between">
-      <div id="location" className="flex mx-auto ml-28">
+      <div id="location" className="flex   justify-center">
         <input
           type="text"
           placeholder="Enter Your City"
@@ -57,14 +59,24 @@ function WeatherDetail({ weather, setCountry }: any) {
       </div>
       <div
         id="detail"
-        className="xl:w-[130%] flex flex-col bg-cover bg-blend-soft-light  backdrop-blur-sm border-0 font-poppins tracking-wider rounded-xl p-3 bg-white/10"
+        className=" mt-[2vh]  mb-40 flex flex-col bg-cover bg-blend-soft-light  backdrop-blur-sm border-0 font-poppins tracking-wider rounded-xl p-3 bg-white/10"
       >
         <div className="flex justify-center">
           <h1 className="bg-clip-text text-3xl text-transparent bg-gradient-to-r from-violet-900 to-x to-slate-900">
             {weather.name}
           </h1>
         </div>
-        <div className="flex text-left mt-12 flex-col items-end mr-16">
+     
+        <div className="flex justify-between w-[90vh]">
+          <div>
+
+          <img
+            src={backgroundMain()}
+            className="rounded-full w-[60vh] h-[30vh] bg-blend-darken"
+            alt="Clear Sun"
+          />
+          </div>
+             <div className="flex text-left mt-6 flex-col items-end mr-16">
           <h2 className="font-medium bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
             <label
               htmlFor="Temp"
@@ -81,38 +93,34 @@ function WeatherDetail({ weather, setCountry }: any) {
             {humidity}
           </h2>
         </div>
-      
-          <img
-            src={backgroundMain()}
-            className="absolute rounded-full bg-blend-darken  top-10 w-[50%] h-[50%]"
-            alt="Clear Sun"
-          />
-  
-        <div className="flex flex-col ">
-          <div className=" flex absolute top-[50%] right-20 text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900 ">
-          <h1 >
-            <span>Sun Set: </span>
-            {sunsetTime}
-          </h1>
+        </div>
+
+        <div className="flex justify-between w-[90vh]    ">
+          <div>
+            <h1 className="mt-[20%] text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
+              <span>Sun Rises: </span>
+              {sunriseTime}
+            </h1>
             <img
-              src={sundown}
-              className=" absolute mt-8 rounded-full"
+              src={sunup}
+              className=" w-[30vh] h-[20vh] rounded-full"
               alt="Clear Sun"
             />
           </div>
-          <h1 className="mt-[20%] text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
-            <span>Sun Rises: </span>
-            {sunriseTime}
-          </h1>
-          <img
-            src={sunup}
-            className=" w-[35%] h-[35%] rounded-full"
-            alt="Clear Sun"
-          />
+          <div>
+            <h1 className="mt-[20%] text-pretty  font-medium text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
+              <span>Sun Set: </span>
+              {sunsetTime}
+            </h1>
+            <img
+              src={sundown}
+              className="    w-[30vh] h-[20vh] rounded-full"
+              alt="Clear Sun"
+            />
+          </div>
         </div>
       </div>
       <div id="for extra wait"></div>
-    
     </div>
   )
 }

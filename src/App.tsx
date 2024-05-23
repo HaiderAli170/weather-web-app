@@ -49,7 +49,7 @@ function Weather() {
     };
     return (
       <>
-      <div className=" font-poppins flex justify-center w-full h-screen bg-cover bg-bottom bg-no-repeat" style={{ backgroundImage: `url(${backgroundMain()})` }}>
+      <div className=" font-poppins flex justify-center w-full  h-screen bg-cover bg-bottom bg-no-repeat" style={{ backgroundImage: `url(${backgroundMain()})` }}>
           {/* <Sidebar/> */}
           <div className='flex absolute top-0  h-screen  bg-transparent '>
           <WeatherDetail weather={weather} setCountry={setCountry}/>
