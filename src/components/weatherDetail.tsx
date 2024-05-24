@@ -9,11 +9,11 @@ import { format, fromUnixTime } from 'date-fns'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 function WeatherDetail({ weather, setCountry, countries }: any) {
   const [inputValue, setInputValue] = useState('')
-
   const temperature = weather?.main?.temp
   const humidity = weather?.main?.humidity
   const sunRise = weather?.sys?.sunrise
   const sunSet = weather?.sys?.sunset
+  const feelslike = weather?.main?.feels_like
 
   // Convert the Unix timestamp to a readable time format
   const sunriseTime = sunRise ? format(fromUnixTime(sunRise), 'p') : 'N/A'
@@ -103,6 +103,12 @@ function WeatherDetail({ weather, setCountry, countries }: any) {
                 Temp:
               </label>
               {temperature}C
+            </h2>
+            <h2 className="font-medium text-pretty text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
+              <label htmlFor="Temp" className="font-poppins tracking-widest">
+                Feels Like:
+              </label>
+              {feelslike}
             </h2>
             <h2 className="font-medium text-pretty text-left bg-clip-text text-xl text-transparent bg-gradient-to-r from-slate-900 to-violet-900">
               <label htmlFor="Temp" className="font-poppins tracking-widest">
