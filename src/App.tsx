@@ -7,17 +7,29 @@ import backgroundCloud from "./assets/cloud.jpg"
 import WeatherDetail from './components/weatherDetail';
 function Weather() {
     const [weather, setWeather]:any = useState(null);
-    const [conutry, setCountry]:any = useState('Pakistan');
-  
+    const [country, setCountry]:any = useState('Pakistan');
+    const [countries, setCountries] = useState([]);
+console.log(countries,'countries')
+
+useEffect(() => {
+  axios.get('https://restcountries.com/v3.1/all')
+    .then(response => {
+      const countryNames = response.data.map((country: { name: { common: any; }; }) => country.name.common);
+      setCountries(countryNames);
+    })
+    .catch(error => {
+      console.log(error)
+    });
+}, []);
+
  
     useEffect(() => {
         const apiKey = 'd8b2b56f5fc4801b1320cb8e00361db5';  
-        const city = conutry;
+        const city = country;
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
         axios.get(url)
             .then(response => {
-              console.log(response.data)
                 setWeather(response.data);
             })
             .catch(error => {
@@ -33,7 +45,7 @@ function Weather() {
                   console.error('Error message:', error.message);
               }
           });
-    }, [conutry]);
+    }, [country]);
 
     if (!weather) return <p>Loading...</p>;
     const backgroundMain = () => {
@@ -52,7 +64,7 @@ function Weather() {
       <div className=" font-poppins flex justify-center w-full  h-screen bg-cover bg-bottom bg-no-repeat" style={{ backgroundImage: `url(${backgroundMain()})` }}>
           {/* <Sidebar/> */}
           <div className='flex absolute top-0  h-screen  bg-transparent '>
-          <WeatherDetail weather={weather} setCountry={setCountry}/>
+          <WeatherDetail weather={weather} countries={countries} setCountry={setCountry}/>
           </div>
 
         </div>
