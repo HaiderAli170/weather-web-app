@@ -9,7 +9,6 @@ function Weather() {
     const [weather, setWeather]:any = useState(null);
     const [country, setCountry]:any = useState('Pakistan');
     const [countries, setCountries] = useState([]);
-console.log(countries,'countries')
 
 useEffect(() => {
   axios.get('https://restcountries.com/v3.1/all')
@@ -47,7 +46,7 @@ useEffect(() => {
           });
     }, [country]);
 
-    if (!weather) return <p>Loading...</p>;
+    if (!weather) return <p></p>;
     const backgroundMain = () => {
       const sky = weather?.weather?.map((item: any) => item.main);
       console.log(sky)
